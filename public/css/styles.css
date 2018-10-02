@@ -1,13 +1,29 @@
 .headline {
   align-items: center;
   background-color: magenta;
+  display: flex;
   justify-content: center;
-  height: 5em;
+  height: 6em;
+}
+
+.input {
+  font-size: 1em;
+  width: 15em;
+}
+
+.input-wrap {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .logo {
+  background-color: white;
+  border-radius: 3em;
+  width: 6em;
   color: blue;
   display: flex;
+  font-family: 'Kaushan Script', Cursive;
   font-size: 3em;
   justify-content: center;
   padding: .35em;
@@ -18,14 +34,23 @@
   background-color: lime;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 44.2em;
+  grid-template-rows: repeat(4, 1fr);
+  height: 43.3em;
+}
+
+.palette-selector {
+  border: 2px solid black;
+  grid-column: span 2;
+  grid-row: span 3;
 }
 
 .project-list {
-  border: 2px solid black;
-  grid-column: span 2;
+  border: 2px solid blanchedalmond;
+  grid-row: span 3;
 }
 
-.item {
-  border:1px solid yellow;
+.project-selector {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
