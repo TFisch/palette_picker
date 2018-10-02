@@ -16,36 +16,36 @@
   <header class="headline">
     <h1 class="logo">Palette Picker</h1>
   </header>
-  <section class="palettes-wrapper">
-    <div class="project-selector">
-      <ul class="project-menu">
-        <li>Select A Project</li>
-      </ul>
-    </div>
-    <div class="palette-name input-wrap">
-      <span class="button-wrap">
-        <input type="text" class="palette-input input" placeholder="Palette Name">
-        <button class="save-button">SAVE</button>
-      </span>
-    </div>
-    <div class="project-name input-wrap">
-      <span class="button-wrap">
-        <input type="text" class="project-input input" placeholder="Project Name">
-        <button class="save-button">SAVE</button>
-      </span>
-    </div>
-    <div class="palette-selector">
-      <section class="color-selection">
+  <div class="palettes-wrapper">
+    <section class="palettes-grid">
+      <article class="color-selection">
         <div class="color-one color">1</div>
         <div class="color-two color">2</div>
         <div class="color-three color">3</div>
         <div class="color-four color">4</div>
         <div class="color-five color">5</div>
-      </section>
-      <button class="generate-button">GENERATE NEW PALATE</button>
-    </div>
-    <div class="project-list">Project List</div>
-  </section>
+      </article>
+      <form class="palette-form">
+        <div class="project-selector">
+          <ul class="project-menu">
+            <li>Select A Project</li>
+          </ul>
+        </div>
+        <div class="input-wrap">
+          <span class="button-wrap">
+            <input type="text" class="palette-input input" placeholder="Palette Name">
+            <button class="save-button">SAVE</button>
+          </span>
+          <span class="button-wrap">
+            <input type="text" class="project-input input" placeholder="Project Name">
+            <button class="save-button">SAVE</button>
+          </span>
+        </div>
+        <button class="generate-button">GENERATE NEW PALATE</button>
+      </form>
+      <article class="project-list">Project List</article>
+    </section>
+  </div>
 </body>
 
 </html>

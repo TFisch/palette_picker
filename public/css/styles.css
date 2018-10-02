@@ -5,22 +5,23 @@
 .color {
   background-color: white;
   border: 2px solid black;
-  width: 7em;
+  width: 8em;
 }
 
 .color-selection {
   display: flex;
   justify-content: space-around;
-  height: 22em;
+  grid-column: 1/4;
+  grid-row: 1/8;
   padding-bottom: 2em;
-  padding-top: 3.5em;
-  width: 59em;
+  margin-top: 2em;
+  width: 100%;
 }
 
 .generate-button {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  height: 3.5em;
+  height: 2em;
   width: 20em;
 }
 
@@ -41,7 +42,8 @@
 .input-wrap {
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 50%;
 }
 
 .logo {
@@ -57,28 +59,37 @@
   text-shadow: 3px 2px #24305E;
 }
 
-.palettes-wrapper {
+.palette-form {
+  align-items: center;
+  background-color: magenta;
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / 3;
+  grid-row: 8 / 10;
+}
+
+.palettes-grid {
   background-color: #A8D0E6;
   display: grid;
   font-family: 'Open Sans', sans-serif;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  height: 43.3em;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  height: 98%;
+  width: 100%;
 }
 
-.palette-selector {
-  align-items: center;
-  border: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Open Sans', sans-serif;
-  grid-column: span 2;
-  grid-row: span 3;
+.palettes-wrapper {
+  background-color: #A8D0E6;
+  height: 43em;
 }
 
 .project-list {
-  background-color: #A8D0E6;
-  grid-row: span 3;
+  background-color: #24305E;
+  grid-column: 4 / -1;
+  grid-row: 1/10;
+  margin-top: 2em;
+  height: 100%;
+  width: 95%;
 }
 
 .project-selector {
