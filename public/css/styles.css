@@ -2,6 +2,25 @@
   position: relative;
 }
 
+.color {
+  background-color: white;
+  border: 2px solid black;
+  width: 7em;
+}
+
+.color-selection {
+  display: flex;
+  justify-content: space-around;
+  height: 22em;
+  padding-bottom: 2em;
+  padding-top: 3.5em;
+  width: 59em;
+}
+
+.generate-button {
+  width: 20em;
+}
+
 .headline {
   align-items: center;
   background-color: magenta;
@@ -43,8 +62,10 @@
 }
 
 .palette-selector {
+  align-items: center;
   border: 2px solid black;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-column: span 2;
   grid-row: span 3;
 }
