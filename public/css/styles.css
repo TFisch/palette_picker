@@ -8,6 +8,18 @@
 .logo {
   color: blue;
   display: flex;
+  font-size: 2em;
   justify-content: center;
   padding: .5em;
+}
+
+.palettes-wrapper {
+  border:1px solid black;
+  background-color: lime;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  border:1px solid yellow;
 }
