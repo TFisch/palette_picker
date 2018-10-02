@@ -4,6 +4,13 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Palette Picker';
 
+app.use(express.static('public'));
+
+app.get('/', (request, response) => {
+  // response is actually handled by static asset express middleware
+  // defined by app.use(express.static('public'));
+});
+
 app.get('/', (request, response) => {
   response.send('Root message!');
 });

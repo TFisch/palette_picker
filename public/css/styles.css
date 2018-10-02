@@ -1,0 +1,13 @@
+.headline {
+  align-items: center;
+  background-color: magenta;
+  justify-content: center;
+  height: 4em;
+}
+
+.logo {
+  color: blue;
+  display: flex;
+  justify-content: center;
+  padding: .5em;
+}
