@@ -2,22 +2,28 @@
   align-items: center;
   background-color: magenta;
   justify-content: center;
-  height: 4em;
+  height: 5em;
 }
 
 .logo {
   color: blue;
   display: flex;
-  font-size: 2em;
+  font-size: 3em;
   justify-content: center;
-  padding: .5em;
+  padding: .35em;
 }
 
 .palettes-wrapper {
-  border:1px solid black;
+  border-bottom: 3px solid purple;
   background-color: lime;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  height: 44.2em;
+}
+
+.project-list {
+  border: 2px solid black;
+  grid-column: span 2;
 }
 
 .item {
