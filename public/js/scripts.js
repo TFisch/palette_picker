@@ -4,7 +4,7 @@ $('.color').click(function () {
 
 $('.generate-button').click(function () {
   event.preventDefault();
-  console.log('hi');
+
 })
 
 function generateRandomColor() {
