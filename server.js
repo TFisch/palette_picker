@@ -10,8 +10,13 @@ app.get('/', (request, response) => {
 
 app.get('/api/v1/projects', (request, response) => {
   const projects = app.locals.projects;
-
   response.json({ projects })
+})
+
+app.get('/api/v1/projects/:name', (request, response) => {
+  const { name } = request.params;
+  const project = app.locals.projects.find(project => project.name === name);
+  return response.status(200).json(project);
 })
 
 app.listen(app.get('port'), () => {
