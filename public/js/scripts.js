@@ -18,3 +18,18 @@ function generateRandomColor() {
 }
 
 $('.color').css('background-color', 'red');
+
+$(function () {
+
+  $('.dropdown-top').click(function () {
+    $(this).next('.project-menu').toggle();
+  });
+
+  $(document).click(function (e) {
+    var target = e.target;
+    if (!$(target).is('.dropdown-top') && !$(target).parents().is('.dropdown-top')) {
+      $('.project-menu').hide();
+    }
+  });
+
+});
