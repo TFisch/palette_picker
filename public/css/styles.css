@@ -25,6 +25,12 @@
   padding-bottom: .5em;
 }
 
+.dropdown-top {
+  padding: .5em 1em;
+  background: #777;
+  border-radius: .2em .2em 0 0;
+}
+
 .generate-button {
   background-color: #14A098;
   border: solid 2px #CCCCCC;
@@ -128,6 +134,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .save-button {
@@ -137,4 +144,9 @@
   position: absolute;
   right: .2em;
   bottom: .2em;
+}
+
+.stack {
+  text-decoration: none;
+  color: #fff;
 }
