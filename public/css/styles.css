@@ -4,7 +4,10 @@
 
 .color {
   background-color: white;
-  border: 2px solid black;
+  border: solid 3px #CCCCCC;
+  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   width: 8em;
 }
 
@@ -19,6 +22,12 @@
 }
 
 .generate-button {
+  background-color: #14A098;
+  border: solid 2px #CCCCCC;
+  -webkit-box-shadow: 13px 11px 25px 1px rgba(0,0,0,0.53);
+  -moz-box-shadow: 13px 11px 25px 1px rgba(0,0,0,0.53);
+  box-shadow: 13px 11px 25px 1px rgba(0,0,0,0.53);
+  color: #CCCCCC;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   grid-column: 3 / 6;
@@ -30,8 +39,7 @@
 
 .headline {
   align-items: center;
-  background-color: #24305E;
-  border-bottom: 4px solid #F76C6C;
+  background-color: #0F292F;
   display: flex;
   justify-content: center;
   height: 6.5em;
@@ -50,21 +58,28 @@
 }
 
 .logo {
-  background-color: white;
+  background-color: #14A098;
   border-radius: 3em;
+  -webkit-box-shadow: 3px 6px 25px 11px rgba(0,0,0,0.53);
+  -moz-box-shadow: 3px 6px 25px 11px rgba(0,0,0,0.53);
+  box-shadow: 3px 6px 25px 11px rgba(0,0,0,0.53);
   width: 6em;
-  color: #F76C6C;
+  color: #FEFFFF;
   display: flex;
   font-family: 'Kaushan Script', Cursive;
   font-size: 3em;
   justify-content: center;
   padding: .35em;
-  text-shadow: 3px 2px #24305E;
+  text-shadow: 3px 2px #0F292F;
 }
 
 .palette-form {
   align-items: center;
-  background-color: magenta;
+  background-color: #14A098;
+  border: solid 3px #CCCCCC;
+  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   display: flex;
   flex-direction: column;
   grid-column: 2 / 7;
@@ -72,11 +87,10 @@
   height: 60%;
   margin-left: 15%;
   width: 70%;
-
 }
 
 .palettes-grid {
-  background-color: #A8D0E6;
+  background-color: #0F292F;
   display: grid;
   font-family: 'Open Sans', sans-serif;
   grid-template-columns: repeat(10, 1fr);
@@ -86,16 +100,22 @@
 }
 
 .palettes-wrapper {
-  background-color: #A8D0E6;
+  background-color: #0F292F;
   height: 43em;
 }
 
 .project-list {
-  background-color: #24305E;
+  background-color: #14A098;
+  border: solid 3px #CCCCCC;
+  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  color: #FEFFFF;
+  font-family: 'Open Sans', sans-serif;
   grid-column: 8 / -1;
   grid-row: 1/10;
   margin-top: 2em;
-  height: 100%;
+  height: 87.5%;
   width: 95%;
 }
 
