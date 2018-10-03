@@ -27,9 +27,19 @@
 
 .dropdown-top {
   padding: .5em 1em;
-  background: #777;
-  border-radius: .2em .2em 0 0;
+  background: #CCCCCC;
+  width: 5em;
 }
+
+.project-menu {
+  display:none;
+  position: absolute;
+  top: 100%;
+  background: #CCCCCC;
+  padding: 0;
+  width: 7em;
+
+  }
 
 .generate-button {
   background-color: #14A098;
@@ -57,7 +67,9 @@
 
 .input {
   font-size: 1em;
+  position: relative;
   width: 12em;
+  z-index: 1;
 }
 
 .input-wrap {
@@ -97,6 +109,7 @@
   height: 60%;
   justify-content: flex;
   margin-left: 15%;
+  position: relative;
   width: 70%;
 }
 
@@ -108,6 +121,11 @@
   grid-template-rows: repeat(10, 1fr);
   height: 98%;
   width: 100%;
+}
+
+.palette-input {
+  position: relative;
+  z-index: 1;
 }
 
 .palettes-wrapper {
@@ -135,6 +153,7 @@
   display: flex;
   justify-content: center;
   position: relative;
+  z-index: 3;
 }
 
 .save-button {
@@ -144,9 +163,14 @@
   position: absolute;
   right: .2em;
   bottom: .2em;
+  z-index: 1;
+
 }
 
 .stack {
-  text-decoration: none;
   color: #fff;
+  display: block;
+  position: relative;
+  z-index: 3;
 }
+
