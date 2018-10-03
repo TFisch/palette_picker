@@ -6,10 +6,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.set('port', process.env.PORT || 3000);
+
 app.locals.title = 'Palette Picker';
+
 app.locals.projects = [
-  { name: 'proj', colors: ['C0C0C0', 'FFFFFF', '808080', '000000', 'FF5723'] },
-  { name: 'projTwo', colors: ['C0C0C0', 'FFFFFF', '808080', '000000', 'FF5723'] }
+  { id: 1, name: 'proj' },
+  { id: 2, name: 'projTwo' }
+]
+
+app.locals.palettes = [
+  { id: 1, color: 1, color: 2, color: 3, color: 4, color: 5 },
+  { id: 2, color: 1, color: 2, color: 3, color: 4, color: 5 },
+  { id: 3, color: 1, color: 2, color: 3, color: 4, color: 5 }
+
 ]
 
 app.use(express.static('public'));
@@ -27,6 +36,7 @@ app.get('/api/v1/projects/:name', (request, response) => {
 
 app.post('/api/v1/projects', (request, response) => {
   const project = request.body;
+
   app.locals.projects.push(project)
   response.status(201).json({ project });
 })
