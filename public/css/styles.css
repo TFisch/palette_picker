@@ -21,6 +21,10 @@
   width: 100%;
 }
 
+.create-head {
+  padding-bottom: .5em;
+}
+
 .generate-button {
   background-color: #14A098;
   border: solid 2px #CCCCCC;
@@ -47,14 +51,14 @@
 
 .input {
   font-size: 1em;
-  /* width: 15em; */
+  width: 12em;
 }
 
 .input-wrap {
-  align-items: center;
   display: flex;
-  justify-content: space-around;
-  /* width: 50%; */
+  justify-content: space-evenly;
+  padding-top: 4em;
+  width: 100%;
 }
 
 .logo {
@@ -85,6 +89,7 @@
   grid-column: 2 / 7;
   grid-row: 7 / 11;
   height: 60%;
+  justify-content: flex;
   margin-left: 15%;
   width: 70%;
 }
