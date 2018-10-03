@@ -22,23 +22,24 @@
 }
 
 .create-head {
+  color: #FEFFFF;
   padding-bottom: .5em;
 }
 
 .dropdown-top {
+  background: #0f292f;
   padding: .5em 1em;
-  background: #CCCCCC;
   width: 5em;
 }
 
 .project-menu {
-  display:none;
+  background: #CCCCCC;
+  border: solid 2px #FEFFFF;
+  display: none;
+  padding: 0;
   position: absolute;
   top: 100%;
-  background: #CCCCCC;
-  padding: 0;
   width: 7em;
-
   }
 
 .generate-button {
@@ -75,7 +76,7 @@
 .input-wrap {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 4em;
+  padding-top: 3em;
   width: 100%;
 }
 
@@ -150,8 +151,11 @@
 
 .project-selector {
   align-items: center;
+  border: solid 2px #FEFFFF;
   display: flex;
   justify-content: center;
+  margin-right: 20em;
+  margin-top: 1em;
   position: relative;
   z-index: 3;
 }
