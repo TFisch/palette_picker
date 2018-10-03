@@ -80,6 +80,11 @@
   width: 100%;
 }
 
+.locked {
+  box-shadow: none;
+  transform: scale(0.9);
+}
+
 .logo {
   background-color: #14A098;
   border-radius: 3em;

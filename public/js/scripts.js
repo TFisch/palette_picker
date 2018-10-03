@@ -22,8 +22,6 @@ $('.generate-button').click(function () {
 })
 
 
-
-
 $(function () {
   $('.dropdown-top').click(function () {
     $(this).next('.project-menu').toggle();
