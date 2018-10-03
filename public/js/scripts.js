@@ -3,8 +3,8 @@ $('.color').click(function () {
 })
 
 $('.generate-button').click(function () {
-  event.preventDefault();
-
+  console.log(generateRandomColor());
+  $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 })
 
 function generateRandomColor() {
@@ -12,7 +12,10 @@ function generateRandomColor() {
   var hexId = '#';
 
   for (var i = 0; i < 6; i++) {
-    hexId += letters[Math.round(Math.random * 15)];
+    hexId += letters[Math.round(Math.random() * 15)];
   }
   return hexId
-} 
+}
+
+
+$('.color').css('background-color', 'red');
