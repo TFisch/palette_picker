@@ -17,5 +17,4 @@ function generateRandomColor() {
   return hexId
 }
 
-
 $('.color').css('background-color', 'red');
