@@ -1,11 +1,3 @@
-$('.color').click(function () {
-  $(this).toggleClass('locked');
-})
-
-$('.generate-button').click(function () {
-  console.log(generateRandomColor());
-  $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
-})
 
 function generateRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
@@ -17,10 +9,22 @@ function generateRandomColor() {
   return hexId
 }
 
-$('.color').css('background-color', 'red');
+$(document).ready(function () {
+  $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
+});
+
+$('.color').click(function () {
+  $(this).toggleClass('locked');
+})
+
+$('.generate-button').click(function () {
+  $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
+})
+
+
+
 
 $(function () {
-
   $('.dropdown-top').click(function () {
     $(this).next('.project-menu').toggle();
   });
@@ -31,5 +35,4 @@ $(function () {
       $('.project-menu').hide();
     }
   });
-
 });
