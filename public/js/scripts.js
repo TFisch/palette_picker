@@ -1,11 +1,3 @@
-// function fetchProjects() {
-//   const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
-//   });
-
-//   request.done(function (data) {
-//     populateProjectMenu(data);
-//   })
-// }
 
 async function fetchProjects() {
   const url = "http://localhost:3000/api/v1/projects";
@@ -14,25 +6,37 @@ async function fetchProjects() {
   await populateProjectMenu(data);
 }
 
-
 function populateProjectMenu(retreivedProjects) {
   retreivedProjects.map(project => {
     return $(".project-menu").append(`<li class="stack">${project.name}</li>`);
   })
 }
 
-function checkProjectName(entry) {
-  const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
-  });
+// function checkProjectName(entry) {
+//   const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
+//   });
 
-  request.done(function (data) {
-    const match = data.find(project => entry === project.name);
-    if (match) {
-      console.log("Sorry that project name is taken")
-    } else {
-      addProject(entry);
-    }
-  })
+//   request.done(function (data) {
+//     const match = data.find(project => entry === project.name);
+//     if (match) {
+//       console.log("Sorry that project name is taken")
+//     } else {
+//       addProject(entry);
+//     }
+//   
+// }
+
+async function checkProjectName(entry) {
+  const url = "http://localhost:3000/api/v1/projects";
+  const response = await fetch(url);
+  const data = await response.json();
+
+  const match = data.find(project => entry === project.name);
+  if (match) {
+    console.log("Sorry that project name is taken")
+  } else {
+    addProject(entry);
+  }
 }
 
 function addProject(entry) {
