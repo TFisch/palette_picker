@@ -76,7 +76,7 @@
 .input-wrap {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 3em;
+  padding-top: 5em;
   width: 100%;
 }
 
@@ -161,7 +161,8 @@
   justify-content: center;
   margin-right: 20em;
   margin-top: 1em;
-  position: relative;
+  right: 2.6em;
+  position: absolute;
   z-index: 3;
 }
 
