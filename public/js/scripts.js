@@ -3,11 +3,11 @@ function fetchProjects() {
   });
 
   request.done(function (data) {
-    populateProjectList(data);
+    populateProjectMenu(data);
   })
 }
 
-function populateProjectList(retreivedProjects) {
+function populateProjectMenu(retreivedProjects) {
   retreivedProjects.map(project => {
     return $(".project-menu").append(`<li class="stack">${project.name}</li>`);
   })
@@ -28,10 +28,11 @@ function checkProjectName(entry) {
 }
 
 function addProject(entry) {
-  $.post("http://localhost:3000/api/v1/projects", { name: entry }, function (data) {
-    console.log(data);
-  }
-  );
+  $.ajax({
+    method: "POST", url: "http://localhost:3000/api/v1/projects", data: { name: entry }, function(data) {
+      console.log(data);
+    }
+  })
 }
 
 function generateRandomColor() {
