@@ -15,9 +15,19 @@ function populateProjectMenu(retreivedProjects) {
 }
 
 function populateProjectList(retreivedProjects) {
+  console.log(retreivedProjects);
   retreivedProjects.map(project => {
     return $(".project-display").append(`<ul class="stack">${project.name}</ul>`);
   })
+}
+
+async function displayNewProject(id) {
+  const idValue = Object.values(id);
+  const url = `/api/v1/projects/${idValue}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  populateProjectList(data);
+  populateProjectMenu(data);
 }
 
 
@@ -25,7 +35,7 @@ async function checkProjectName(entry) {
   const url = "/api/v1/projects";
   const response = await fetch(url);
   const data = await response.json();
-
+  console.log(entry);
   const match = data.find(project => entry === project.name);
   if (match) {
     console.log("Sorry that project name is taken")
@@ -41,9 +51,8 @@ async function addProject(entry) {
     body: JSON.stringify({ name: entry }),
     headers: { 'Content-Type': 'application/json' }
   });
-
   const data = await response.json();
-  console.log(data);
+  await displayNewProject(data);
 }
 
 
