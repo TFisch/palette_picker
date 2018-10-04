@@ -9,4 +9,7 @@ module.exports = {
     },
     useNullAsDefault: true
   },
+  seeds: {
+    directory: './db/seeds/dev'
+  }
 };
