@@ -29,6 +29,7 @@
 .dropdown-top {
   background: #0f292f;
   padding: .5em 1em;
+  position: absolute;
   width: 5em;
 }
 
@@ -114,8 +115,8 @@
   grid-row: 7 / 11;
   height: 60%;
   justify-content: flex;
-  margin-left: 15%;
   position: relative;
+  margin-left: 15%;
   width: 70%;
 }
 
@@ -159,9 +160,8 @@
   border: solid 2px #FEFFFF;
   display: flex;
   justify-content: center;
-  margin-right: 20em;
   margin-top: 1em;
-  right: 2.6em;
+  left: 2.6em;
   position: absolute;
   z-index: 3;
 }
