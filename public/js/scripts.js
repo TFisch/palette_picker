@@ -10,6 +10,7 @@ function generateRandomColor() {
 }
 
 $(document).ready(function () {
+  fetchProjects();
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
 
@@ -21,6 +22,12 @@ $('.generate-button').click(function () {
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 })
 
+
+function fetchProjects() {
+  $.get("http://localhost:3000/api/v1/projects", function (data) {
+    console.log(data);
+  });
+}
 
 $(function () {
   $('.dropdown-top').click(function () {
