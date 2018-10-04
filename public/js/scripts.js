@@ -1,4 +1,8 @@
-
+function fetchProjects() {
+  $.get("http://localhost:3000/api/v1/projects", function (data) {
+    data.map(project => console.log(project.name));
+  });
+}
 function generateRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
   var hexId = '#';
@@ -23,11 +27,6 @@ $('.generate-button').click(function () {
 })
 
 
-function fetchProjects() {
-  $.get("http://localhost:3000/api/v1/projects", function (data) {
-    console.log(data);
-  });
-}
 
 $(function () {
   $('.dropdown-top').click(function () {
