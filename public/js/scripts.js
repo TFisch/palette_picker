@@ -1,10 +1,9 @@
-function fetchProjects() {
-  const request = $.ajax("/api/v1/projects", function (data) {
-  });
 
-  request.done(function (data) {
-    populateProjectMenu(data);
-  })
+async function fetchProjects() {
+  const url = "http://localhost:3000/api/v1/projects";
+  const response = await fetch(url);
+  const data = await response.json();
+  await populateProjectMenu(data);
 }
 
 function populateProjectMenu(retreivedProjects) {
@@ -13,32 +12,31 @@ function populateProjectMenu(retreivedProjects) {
   })
 }
 
-function checkProjectName(entry) {
-  const request = $.ajax("/api/v1/projects", function (data) {
+async function checkProjectName(entry) {
+  const url = "http://localhost:3000/api/v1/projects";
+  const response = await fetch(url);
+  const data = await response.json();
+
+  const match = data.find(project => entry === project.name);
+  if (match) {
+    console.log("Sorry that project name is taken")
+  } else {
+    addProject(entry);
+  }
+}
+
+async function addProject(entry) {
+  const url = "http://localhost:3000/api/v1/projects";
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({ name: entry }),
+    headers: { 'Content-Type': 'application/json' }
   });
 
-  request.done(function (data) {
-    const match = data.find(project => entry === project.name);
-    if (match) {
-      console.log("Sorry that project name is taken")
-    } else {
-      addProject(entry);
-    }
-  })
+  const data = await response.json();
+  console.log(data);
 }
 
-function addProject(entry) {
-  $.ajax({
-    method: "POST", url: "/api/v1/projects", data: { name: entry }, function(data) {
-      console.log(data);
-    }
-  })
-
-  request.done(function (data) {
-    $.get()
-  })
-
-}
 
 function generateRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
