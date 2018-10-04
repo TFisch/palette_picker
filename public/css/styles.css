@@ -30,7 +30,12 @@
   background: #0f292f;
   padding: .5em 1em;
   position: absolute;
-  width: 7em;
+  width: 10.2em;
+}
+
+.form-wrap {
+  display: flex;
+  width: 100%;
 }
 
 .project-menu {
@@ -42,7 +47,7 @@
   position: absolute;
   overflow: scroll;
   top: 100%;
-  width: 9em;
+  width: 12.2em;
   }
 
 .generate-button {
@@ -80,7 +85,9 @@
   display: flex;
   justify-content: space-evenly;
   padding-top: 5em;
-  width: 100%;
+  position: absolute;
+  left: 1em; 
+  bottom: 1em; 
 }
 
 .locked {
@@ -133,7 +140,6 @@
 }
 
 .palette-input {
-  position: relative;
   z-index: 1;
 }
 
@@ -165,6 +171,7 @@
   margin-top: 1em;
   left: 1em;
   position: absolute;
+  top: 1.25em;
   z-index: 3;
 }
 
@@ -178,6 +185,13 @@
   bottom: .2em;
   z-index: 1;
 
+}
+
+.select-project {
+  color: #FEFFFF;
+  position: absolute;
+  left: 1em;
+  top: 1em;
 }
 
 .stack {
