@@ -33,6 +33,11 @@ function addProject(entry) {
       console.log(data);
     }
   })
+
+  request.done(function (data) {
+    $.get()
+  })
+
 }
 
 function generateRandomColor() {
