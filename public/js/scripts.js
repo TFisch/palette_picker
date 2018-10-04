@@ -12,20 +12,6 @@ function populateProjectMenu(retreivedProjects) {
   })
 }
 
-// function checkProjectName(entry) {
-//   const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
-//   });
-
-//   request.done(function (data) {
-//     const match = data.find(project => entry === project.name);
-//     if (match) {
-//       console.log("Sorry that project name is taken")
-//     } else {
-//       addProject(entry);
-//     }
-//   
-// }
-
 async function checkProjectName(entry) {
   const url = "http://localhost:3000/api/v1/projects";
   const response = await fetch(url);
@@ -39,18 +25,40 @@ async function checkProjectName(entry) {
   }
 }
 
-function addProject(entry) {
-  $.ajax({
-    method: "POST", url: "http://localhost:3000/api/v1/projects", data: { name: entry }, function(data) {
-      console.log(data);
-    }
-  })
+// function addProject(entry) {
+//   $.ajax({
+//     method: "POST", url: "http://localhost:3000/api/v1/projects", data: { name: entry }, function(data) {
+//       console.log(data);
+//     }
+//   })
 
-  request.done(function (data) {
-    $.get()
-  })
+//   request.done(function (data) {
+//     $.get()
+//   })
 
+
+//   const response = await fetch(url, {
+//     method: 'POST',
+//     body: JSON.stringify({ name: userName, email, password }),
+//     headers: { 'Content-Type': 'application/json' }
+//   });
+
+// }
+
+async function addProject(entry) {
+  const url = "http://localhost:3000/api/v1/projects";
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({ name: entry }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  const data = await response.json();
+  console.log(data);
 }
+
+
+
 
 function generateRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
