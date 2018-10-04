@@ -1,22 +1,69 @@
-exports.seed = function (knex, Promise) {
+let palletesData = [
+  {
+    name: 'humble beginnings',
+    color_1: '#E22321',
+    color_2: '#C342222',
+    color_3: '#FFFFFF',
+    color_4: '#B23433',
+    color_5: '#000000',
+    project_id: 1
+  },
+  {
+    name: 'morning of destruction',
+    color_1: '#E22321',
+    color_2: '#C342222',
+    color_3: '#FFFFFF',
+    color_4: '#B23433',
+    color_5: '#000000',
+    project_id: 1
+  }
+]
+
+let projectData = [
+  { name: 'Project One', palettes: ['one', 'two', 'three'] },
+  { name: 'Project Two', palettes: ['four', 'five', 'six'] }
+]
+
+const createProject = (knex, project) => {
+  return knex('projects').insert({
+    name: project.name,
+  }, 'id')
+    .then(projectId => {
+      let palettePromises = [];
+
+      project.palettes.forEach(palette => {
+        palettePromises.push(
+          createPalette(knex, {
+            name: palette.name,
+            color_1: palette.color_1,
+            color_2: palette.color_2,
+            color_3: palette.color_3,
+            color_4: palette.color_4,
+            color_5: palette.color_5,
+            project_id: projectId[0]
+          })
+        )
+      });
+
+      return Promise.all(palettePromises);
+    })
+};
+
+const createPalette = (knex, palette) => {
+  return knex('palettes').insert(palette);
+};
+
+exports.seed = (knex, Promise) => {
   return knex('palettes').del()
     .then(() => knex('projects').del())
-
     .then(() => {
-      return Promise.all([
+      let projectPromises = [];
 
-        knex('projects').insert({
-          name: 'humble beginnings',
-        }, 'id')
-          .then(paper => {
-            return knex('palettes').insert([
-              { color_1: '#E22321', color_2: '#C342222', color_3: '#FFFFFF', color_4: '#B23433', color_5: '#000000', project_id: 1 },
-              { color_1: '#E22321', color_2: '#C342222', color_3: '#FFFFFF', color_4: '#B23433', color_5: '#000000', project_id: 1 }
-            ])
-          })
-          .then(() => console.log('Seeding complete!'))
-          .catch(error => console.log(`Error seeding data: ${error}`))
-      ]) // end return Promise.all
+      projectData.forEach(project => {
+        projectPromises.push(createProject(knex, project));
+      });
+
+      return Promise.all(projectPromises);
     })
     .catch(error => console.log(`Error seeding data: ${error}`));
 };
