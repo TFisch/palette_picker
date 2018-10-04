@@ -28,9 +28,9 @@ app.locals.palettes = [
 app.use(express.static('public'));
 
 
-app.get('/api/v1/projects/:name', (request, response) => {
-  const { name } = request.params;
-  const project = app.locals.projects.find(project => project.name === name);
+app.get('/api/v1/projects/:id', (request, response) => {
+  const { id } = request.params;
+  const project = app.locals.projects.find(project => project.id === id);
   return response.status(200).json(project);
 })
 
@@ -57,6 +57,26 @@ app.get('/api/v1/palettes', (request, response) => {
       response.status(200).json(palettes);
     })
     .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
+
+app.post('/api/v1/projects', (request, response) => {
+  const project = request.body;
+
+  for (let requiredParameter of ['name']) {
+    if (!project[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: { title: <String>, author: <String> }. You're missing a "${requiredParameter}" property.` });
+    }
+  }
+
+  database('projects').insert(project, 'id')
+    .then(project => {
+      response.status(201).json({ id: project[0] })
+    })
+    .catch(error => {
       response.status(500).json({ error });
     });
 });
