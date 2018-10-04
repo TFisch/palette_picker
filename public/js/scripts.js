@@ -3,6 +3,28 @@ function fetchProjects() {
     data.map(project => console.log(project.name));
   });
 }
+
+function checkProjectName(entry) {
+  const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
+  });
+
+  request.done(function (data) {
+    const match = data.find(project => entry === project.name);
+    if (match) {
+      console.log("Sorry that project name is taken")
+    } else {
+      addProject(entry);
+    }
+  })
+}
+
+function addProject(entry) {
+  $.post("http://localhost:3000/api/v1/projects", { name: entry }, function (data) {
+    console.log(data);
+  }
+  );
+}
+
 function generateRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
   var hexId = '#';
@@ -14,7 +36,7 @@ function generateRandomColor() {
 }
 
 $(document).ready(function () {
-  fetchProjects();
+  // fetchProjects();
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
 
@@ -26,7 +48,16 @@ $('.generate-button').click(function () {
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 })
 
+$('.save-palette').click(function () {
+  event.preventDefault();
+  const entry = $('.palette-input').val();
+})
 
+$('.save-project').click(function () {
+  event.preventDefault();
+  const entry = $('.project-input').val();
+  checkProjectName(entry);
+})
 
 $(function () {
   $('.dropdown-top').click(function () {
