@@ -1,11 +1,19 @@
-function fetchProjects() {
-  const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
-  });
+// function fetchProjects() {
+//   const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
+//   });
 
-  request.done(function (data) {
-    populateProjectMenu(data);
-  })
+//   request.done(function (data) {
+//     populateProjectMenu(data);
+//   })
+// }
+
+async function fetchProjects() {
+  const url = "http://localhost:3000/api/v1/projects";
+  const response = await fetch(url);
+  const data = await response.json();
+  await populateProjectMenu(data);
 }
+
 
 function populateProjectMenu(retreivedProjects) {
   retreivedProjects.map(project => {
