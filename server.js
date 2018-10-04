@@ -28,18 +28,25 @@ app.locals.palettes = [
 app.use(express.static('public'));
 
 
-app.get('/api/v1/projects/:id', (request, response) => {
-  const { id } = request.params;
-  const project = app.locals.projects.find(project => project.id === id);
-  return response.status(200).json(project);
-})
-
 app.post('/api/v1/projects', (request, response) => {
   const project = request.body;
 
   app.locals.projects.push(project)
   response.status(201).json({ project });
 })
+
+
+
+
+app.get('/api/v1/palettes', (request, response) => {
+  database('palettes').select()
+    .then((palettes) => {
+      response.status(200).json(palettes);
+    })
+    .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
 
 app.get('/api/v1/projects', (request, response) => {
   database('projects').select()
@@ -51,12 +58,18 @@ app.get('/api/v1/projects', (request, response) => {
     });
 });
 
-app.get('/api/v1/palettes', (request, response) => {
-  database('palettes').select()
-    .then((palettes) => {
-      response.status(200).json(palettes);
+app.get('/api/v1/projects/:id', (request, response) => {
+  database('projects').where('id', request.params.id).select()
+    .then(projects => {
+      if (projects.length) {
+        response.status(200).json(projects);
+      } else {
+        response.status(404).json({
+          error: `Could not find project with id ${request.params.id}`
+        });
+      }
     })
-    .catch((error) => {
+    .catch(error => {
       response.status(500).json({ error });
     });
 });
