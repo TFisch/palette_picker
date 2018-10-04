@@ -1,27 +1,36 @@
-let palletesData = [
-  {
-    name: 'humble beginnings',
-    color_1: '#E22321',
-    color_2: '#C342222',
-    color_3: '#FFFFFF',
-    color_4: '#B23433',
-    color_5: '#000000',
-    project_id: 1
-  },
-  {
-    name: 'morning of destruction',
-    color_1: '#E22321',
-    color_2: '#C342222',
-    color_3: '#FFFFFF',
-    color_4: '#B23433',
-    color_5: '#000000',
-    project_id: 1
-  }
-]
+const palleteDataTwo = {
+  name: 'humble beginnings',
+  color_1: '#E22321',
+  color_2: '#C342222',
+  color_3: '#FFFFFF',
+  color_4: '#B23433',
+  color_5: '#000000',
+  project_id: 1
+};
+
+const paletteDataOne = {
+  name: 'morning of destruction',
+  color_1: '#E22321',
+  color_2: '#C342222',
+  color_3: '#FFFFFF',
+  color_4: '#B23433',
+  color_5: '#000000',
+  project_id: 1
+};
+
+const paletteDataThree = {
+  name: 'Obedient Oppossum',
+  color_1: '#E22321',
+  color_2: '#C342222',
+  color_3: '#FFFFFF',
+  color_4: '#B23433',
+  color_5: '#000000',
+  project_id: 1
+};
 
 let projectData = [
-  { name: 'Project One', palettes: ['one', 'two', 'three'] },
-  { name: 'Project Two', palettes: ['four', 'five', 'six'] }
+  { name: 'Project One', palettes: [paletteDataOne] },
+  { name: 'Project Two', palettes: [palleteDataTwo, paletteDataThree] }
 ]
 
 const createProject = (knex, project) => {
