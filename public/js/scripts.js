@@ -1,6 +1,6 @@
 
 async function fetchProjects() {
-  const url = "http://localhost:3000/api/v1/projects";
+  const url = "/api/v1/projects";
   const response = await fetch(url);
   const data = await response.json();
   await populateProjectMenu(data);
@@ -13,7 +13,7 @@ function populateProjectMenu(retreivedProjects) {
 }
 
 async function checkProjectName(entry) {
-  const url = "http://localhost:3000/api/v1/projects";
+  const url = "/api/v1/projects";
   const response = await fetch(url);
   const data = await response.json();
 
@@ -26,7 +26,7 @@ async function checkProjectName(entry) {
 }
 
 async function addProject(entry) {
-  const url = "http://localhost:3000/api/v1/projects";
+  const url = "/api/v1/projects";
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify({ name: entry }),
