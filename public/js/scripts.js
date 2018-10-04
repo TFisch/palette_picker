@@ -1,5 +1,5 @@
 function fetchProjects() {
-  const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
+  const request = $.ajax("https://localhost:3000/api/v1/projects", function (data) {
   });
 
   request.done(function (data) {
@@ -14,7 +14,7 @@ function populateProjectMenu(retreivedProjects) {
 }
 
 function checkProjectName(entry) {
-  const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
+  const request = $.ajax("https://localhost:3000/api/v1/projects", function (data) {
   });
 
   request.done(function (data) {
@@ -29,7 +29,7 @@ function checkProjectName(entry) {
 
 function addProject(entry) {
   $.ajax({
-    method: "POST", url: "http://localhost:3000/api/v1/projects", data: { name: entry }, function(data) {
+    method: "POST", url: "https://localhost:3000/api/v1/projects", data: { name: entry }, function(data) {
       console.log(data);
     }
   })
