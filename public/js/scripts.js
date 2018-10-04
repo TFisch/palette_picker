@@ -4,6 +4,8 @@ async function fetchProjects() {
   const response = await fetch(url);
   const data = await response.json();
   await populateProjectMenu(data);
+  await populateProjectList(data);
+
 }
 
 function populateProjectMenu(retreivedProjects) {
@@ -11,6 +13,13 @@ function populateProjectMenu(retreivedProjects) {
     return $(".project-menu").append(`<li class="stack">${project.name}</li>`);
   })
 }
+
+function populateProjectList(retreivedProjects) {
+  retreivedProjects.map(project => {
+    return $(".project-display").append(`<ul class="stack">${project.name}</ul>`);
+  })
+}
+
 
 async function checkProjectName(entry) {
   const url = "/api/v1/projects";
