@@ -1,7 +1,16 @@
 function fetchProjects() {
-  $.get("http://localhost:3000/api/v1/projects", function (data) {
-    data.map(project => console.log(project.name));
+  const request = $.ajax("http://localhost:3000/api/v1/projects", function (data) {
   });
+
+  request.done(function (data) {
+    populateProjectList(data);
+  })
+}
+
+function populateProjectList(retreivedProjects) {
+  retreivedProjects.map(project => {
+    return $(".project-menu").append(`<li class="stack">${project.name}</li>`);
+  })
 }
 
 function checkProjectName(entry) {
@@ -36,7 +45,7 @@ function generateRandomColor() {
 }
 
 $(document).ready(function () {
-  // fetchProjects();
+  fetchProjects();
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
 
