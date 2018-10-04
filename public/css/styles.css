@@ -37,8 +37,10 @@
   background: #CCCCCC;
   border: solid 2px #FEFFFF;
   display: none;
+  max-height: 100px;
   padding: 0;
   position: absolute;
+  overflow: scroll;
   top: 100%;
   width: 9em;
   }
@@ -165,6 +167,7 @@
   position: absolute;
   z-index: 3;
 }
+
 
 .save-button {
   border: none;
