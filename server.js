@@ -27,10 +27,10 @@ app.locals.palettes = [
 
 app.use(express.static('public'));
 
-app.get('/api/v1/projects', (request, response) => {
-  const projects = app.locals.projects;
-  response.json({ projects })
-})
+// app.get('/api/v1/projects', (request, response) => {
+//   const projects = app.locals.projects;
+//   response.json({ projects })
+// })
 
 app.get('/api/v1/projects/:name', (request, response) => {
   const { name } = request.params;
@@ -44,6 +44,16 @@ app.post('/api/v1/projects', (request, response) => {
   app.locals.projects.push(project)
   response.status(201).json({ project });
 })
+
+app.get('/api/v1/projects', (request, response) => {
+  database('projects').select()
+    .then((projects) => {
+      response.status(200).json(projects);
+    })
+    .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`);
