@@ -22,19 +22,9 @@ app.locals.palettes = [
   { id: 1, color: 1, color: 2, color: 3, color: 4, color: 5 },
   { id: 2, color: 1, color: 2, color: 3, color: 4, color: 5 },
   { id: 3, color: 1, color: 2, color: 3, color: 4, color: 5 }
-
 ]
 
 app.use(express.static('public'));
-
-
-app.post('/api/v1/projects', (request, response) => {
-  const project = request.body;
-
-  app.locals.projects.push(project)
-  response.status(201).json({ project });
-})
-
 
 app.get('/api/v1/palettes', (request, response) => {
   database('palettes').select()
@@ -88,11 +78,27 @@ app.get('/api/v1/projects/:id', (request, response) => {
     });
 });
 
+// app.get('/api/v1/projects/:id/palettes', (request, response) => {
+//   database('projects').where('id', request.params.id).select()
+//     .then(projects => {
+//       if (projects.length) {
+//         response.status(200).json(projects);
+//       } else {
+//         response.status(404).json({
+//           error: `Could not find project with id ${request.params.id}`
+//         });
+//       }
+//     })
+//     .catch(error => {
+//       response.status(500).json({ error });
+//     });
+// });
+
 app.get('/api/v1/projects/:id/palettes', (request, response) => {
-  database('projects').where('id', request.params.id).select()
-    .then(projects => {
-      if (projects.length) {
-        response.status(200).json(projects);
+  database('palettes').where('project_id', request.params.id).select()
+    .then(palettes => {
+      if (palettes.length) {
+        response.status(200).json(palettes);
       } else {
         response.status(404).json({
           error: `Could not find project with id ${request.params.id}`
