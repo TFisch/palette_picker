@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.block-wrap {
+  display: flex;
+}
+
 .color {
   background-color: white;
   border: solid 3px #CCCCCC;
@@ -9,6 +13,13 @@
   -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   width: 8em;
+}
+
+.color-block {
+  border: 1px solid black;
+  height: 1em;
+  margin-right: 1em;
+  width: 1em;
 }
 
 .color-selection {
@@ -111,6 +122,9 @@
   text-shadow: 3px 2px #0F292F;
 }
 
+.palette {
+  display: flex;
+}
 
 .palette-form {
   align-items: center;

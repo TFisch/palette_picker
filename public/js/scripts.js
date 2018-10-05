@@ -3,10 +3,29 @@ async function fetchProjects() {
   const url = "/api/v1/projects";
   const response = await fetch(url);
   const data = await response.json();
-  await populateProjectMenu(data);
-  await populateProjectList(data);
-
+  populateProjectMenu(data);
+  populateProjectList(data);
 }
+
+async function retrieveSavedPalettes() {
+  const url = "http://localhost:3000/api/v1/palettes";
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+  const match = data.map(palette => ($(`#proj${palette.project_id}`)).append(`
+  <li class="palette">
+    <h4>${palette.name}</h4>
+    <span class="block-wrap">
+      <div class="color-block" style="background-color:${palette.color_1}"></div>
+      <div class="color-block" style="background-color:${palette.color_2}"></div>
+      <div class="color-block" style="background-color:${palette.color_3}"></div>
+      <div class="color-block" style="background-color:${palette.color_4}"></div>
+      <div class="color-block" style="background-color:${palette.color_5}"></div>
+    </span>
+  </li>
+  `));
+}
+
 
 function populateProjectMenu(retreivedProjects) {
   retreivedProjects.map(project => {
@@ -15,9 +34,8 @@ function populateProjectMenu(retreivedProjects) {
 }
 
 function populateProjectList(retreivedProjects) {
-  console.log(retreivedProjects);
   retreivedProjects.map(project => {
-    return $(".project-display").append(`<ul class="stack">${project.name}</ul>`);
+    return $(".project-display").append(`<ul class="stack" id=${"proj" + project.id}>${project.name}</ul>`);
   })
 }
 
@@ -35,7 +53,6 @@ async function checkProjectName(entry) {
   const url = "/api/v1/projects";
   const response = await fetch(url);
   const data = await response.json();
-  console.log(entry);
   const match = data.find(project => entry === project.name);
   if (match) {
     console.log("Sorry that project name is taken")
@@ -68,6 +85,8 @@ function generateRandomColor() {
 
 $(document).ready(function () {
   fetchProjects();
+  retrieveSavedPalettes();
+
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
 
