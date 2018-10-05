@@ -4,6 +4,8 @@
 
 .block-wrap {
   display: flex;
+  justify-content: flex-end;
+  width: 40%;
 }
 
 .color {
@@ -18,7 +20,7 @@
 .color-block {
   border: 1px solid black;
   height: 1em;
-  margin-right: 1em;
+  margin-right: .4em;
   width: 1em;
 }
 
@@ -49,17 +51,6 @@
   width: 100%;
 }
 
-.project-menu {
-  background: #CCCCCC;
-  border: solid 2px #FEFFFF;
-  display: none;
-  max-height: 100px;
-  padding: 0;
-  position: absolute;
-  overflow: scroll;
-  top: 100%;
-  width: 12.2em;
-  }
 
 .generate-button {
   background-color: #14A098;
@@ -122,8 +113,21 @@
   text-shadow: 3px 2px #0F292F;
 }
 
+.name-block-wrap {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .palette {
   display: flex;
+  margin-top: .35em;
+  margin-bottom: .35em;
+}
+
+.palette-name {
+  width: 50%;
 }
 
 .palette-form {
@@ -157,6 +161,18 @@
   z-index: 1;
 }
 
+.project-menu {
+  background: #CCCCCC;
+  border: solid 2px #FEFFFF;
+  display: none;
+  max-height: 100px;
+  padding: 0;
+  position: absolute;
+  overflow: scroll;
+  top: 100%;
+  width: 12.2em;
+  }
+
 .palettes-wrapper {
   background-color: #0F292F;
   height: 43em;
@@ -188,7 +204,6 @@
   top: 1.25em;
   z-index: 3;
 }
-
 
 .save-button {
   border: none;
