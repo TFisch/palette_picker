@@ -38,7 +38,7 @@
 }
 
 .create-head {
-  color: #FEFFFF;
+  color: #CCCCCC;
   padding-bottom: .5em;
 }
 
@@ -75,15 +75,26 @@
   align-items: center;
   background-color: #0F292F;
   display: flex;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
   justify-content: center;
   height: 6.5em;
 }
 
 .input {
+  background-color: #0F292F;
+  border: solid 2px #CCCCCC;
+  color: #FEFFFF;
   font-size: 1em;
+  padding: .5em 1em;
   position: relative;
-  width: 12em;
+  width: 10.2em;
   z-index: 1;
+}
+
+.input::placeholder {
+  color: #CCCCCC;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .input-wrap {
@@ -186,7 +197,7 @@
 }
 
 .project-index {
-  color: #FEFFFF;
+  color: #CCCCCC;
 }
 
 .project-list {
@@ -206,7 +217,7 @@
 
 .project-selector {
   align-items: center;
-  border: solid 2px #FEFFFF;
+  border: solid 2px #CCCCCC;
   display: flex;
   justify-content: center;
   margin-top: 1em;
@@ -217,18 +228,32 @@
 }
 
 .save-button {
+  background-color: #0F292F;
   border: none;
+  color: #CCCCCC;
   font-family: 'Open Sans', sans-serif;
   outline: none;
   position: absolute;
   right: .2em;
   bottom: .2em;
   z-index: 1;
+}
 
+.save-button:hover {
+  color: #FEFFFF;
+  cursor: pointer;
+}
+
+#save-palette-button {
+  padding-bottom: .8em;
+}
+
+#save-project-button {
+  top: .4em;
 }
 
 .select-project {
-  color: #FEFFFF;
+  color: #CCCCCC;
   position: absolute;
   left: 1em;
   top: 1em;
