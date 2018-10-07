@@ -114,6 +114,26 @@ app.post('/api/v1/projects', (request, response) => {
     });
 });
 
+app.post('/api/v1/palettes', (request, response) => {
+  const palette = request.body;
+
+  for (let requiredParameter of ['color_1', 'color_2', 'color_3', 'color_4', 'color_5', 'name']) {
+    if (!palette[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `You're missing a "${requiredParameter}" property.` });
+    }
+  }
+
+  database('palettes').insert(palette, 'id')
+    .then(palette => {
+      response.status(201).json({ id: palette[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`);
 });
