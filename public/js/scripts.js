@@ -29,13 +29,13 @@ async function retrieveSavedPalettes() {
 
 function populateProjectMenu(retreivedProjects) {
   retreivedProjects.map(project => {
-    return $(".project-menu").append(`<li class="stack">${project.name}</li>`);
+    return $(".project-menu").append(`<li class="stack project-item">${project.name}</li>`);
   })
 }
 
 function populateProjectList(retreivedProjects) {
   retreivedProjects.map(project => {
-    return $(".project-display").append(`<ul class="stack" id=${"proj" + project.id}>${project.name}</ul>`);
+    return $(".project-display").append(`<ul class="project-index" id=${"proj" + project.id}>${project.name}</ul>`);
   })
 }
 
@@ -101,6 +101,12 @@ $('.generate-button').click(function () {
 $('.save-palette').click(function () {
   event.preventDefault();
   const entry = $('.palette-input').val();
+})
+
+$('.project-menu').click(function (e) {
+  event.preventDefault();
+  const selection = e.target.innerText;
+  $('.dropdown-top').text(selection);
 })
 
 $('.save-project').click(function () {

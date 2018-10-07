@@ -178,13 +178,17 @@
   height: 43em;
 }
 
+.project-index {
+  color: #FEFFFF;
+}
+
 .project-list {
   background-color: #14A098;
   border: solid 3px #CCCCCC;
   -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  color: #FEFFFF;
+  color: #CCCCCC;
   font-family: 'Open Sans', sans-serif;
   grid-column: 8 / -1;
   grid-row: 1/10;
@@ -224,9 +228,16 @@
 }
 
 .stack {
-  color: #fff;
+  background-color: #0F292F;
+  color: #CCCCCC;
+  cursor: pointer;
   display: block;
   position: relative;
   z-index: 3;
+}
+
+
+.stack:hover {
+  color: #FEFFFF;
 }
 
