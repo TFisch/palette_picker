@@ -130,9 +130,10 @@ $('#save-palette-button').click(async function () {
   const colorThree = $('.color-three').css('background-color');
   const colorFour = $('.color-four').css('background-color');
   const colorFive = $('.color-five').css('background-color');
+  const name = $('palette-input').value;
   const resolvedMatch = await findProjectMatch();
   const projectId = resolvedMatch.id;
-  postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, projectId);
+  postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, name, projectId);
 })
 
 async function findProjectMatch() {
