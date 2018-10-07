@@ -71,14 +71,15 @@ async function addProject(entry) {
   await displayNewProject(data);
 }
 
-async function deletePalette(paletteId) {
+async function deletePalette(palette) {
+  paletteId = palette[0].id;
   const url = `/api/v1/palettes/${paletteId}`;
   const response = await fetch(url, {
     method: 'DELETE',
   });
   const data = await response.json();
-  await fetchProjects();
-  await retrieveSavedPalettes();
+  palette[0].remove();
+
 }
 
 
@@ -104,8 +105,7 @@ $(document).ready(function () {
 $(window).on('load', function () {
   $('.delete-palette').click(function (event) {
     const palette = ($(event.target).parent().parent());
-    const project = $(event.target).parent().parent().parent();
-    deletePalette(palette[0].id, project[0].id);
+    deletePalette(palette);
   })
 });
 
