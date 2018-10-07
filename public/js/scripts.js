@@ -11,7 +11,6 @@ async function retrieveSavedPalettes() {
   const url = "http://localhost:3000/api/v1/palettes";
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
   const match = data.map(palette => ($(`#proj${palette.project_id}`)).append(`
   <li class="palette">
     <h4>${palette.name}</h4>
@@ -94,15 +93,21 @@ $('.color').click(function (e) {
   let imageState = ($(event.target).children('img').attr('src'));
   if (imageState === "./images/unlocked.svg") {
     ($(event.target).children('img').attr('src', './images/locked.svg'));
+    ($(event.target).toggleClass('unlocked'));
+    ($(event.target).toggleClass('locked-in'));
+
   }
   if (imageState === "./images/locked.svg") {
     ($(event.target).children('img').attr('src', './images/unlocked.svg'));
+    ($(event.target).toggleClass('unlocked'));
+    ($(event.target).toggleClass('locked-in'));
   }
-  $(this).toggleClass('locked');
+
 })
 
 $('.generate-button').click(function () {
-  $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
+
+  $('.unlocked').each(function () { $(this).css('background-color', generateRandomColor()) });
 })
 
 $('.save-palette').click(function () {

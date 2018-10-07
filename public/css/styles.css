@@ -99,7 +99,7 @@
   width: 2em;
 }
 
-.locked {
+.locked-in {
   box-shadow: none;
   transform: scale(0.9);
 }
