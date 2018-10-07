@@ -92,6 +92,10 @@
   bottom: 1em; 
 }
 
+.lock-image {
+  width: 1em;
+}
+
 .locked {
   box-shadow: none;
   transform: scale(0.9);
