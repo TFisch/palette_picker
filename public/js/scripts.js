@@ -90,7 +90,14 @@ $(document).ready(function () {
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
 
-$('.color').click(function () {
+$('.color').click(function (e) {
+  let imageState = ($(event.target).children('img').attr('src'));
+  if (imageState === "./images/unlocked.svg") {
+    ($(event.target).children('img').attr('src', './images/locked.svg'));
+  }
+  if (imageState === "./images/locked.svg") {
+    ($(event.target).children('img').attr('src', './images/unlocked.svg'));
+  }
   $(this).toggleClass('locked');
 })
 
