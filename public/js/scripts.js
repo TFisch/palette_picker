@@ -20,6 +20,7 @@ async function retrieveSavedPalettes() {
       <div class="color-block" style="background-color:${palette.color_3}"></div>
       <div class="color-block" style="background-color:${palette.color_4}"></div>
       <div class="color-block" style="background-color:${palette.color_5}"></div>
+      <img class="delete-palette" src="../images/garbage.svg" />
     </span>
   </li>
   `));

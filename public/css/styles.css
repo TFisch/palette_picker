@@ -3,6 +3,8 @@
 }
 
 .block-wrap {
+  align-items: center;
+  cursor: pointer;
   display: flex;
   justify-content: flex-end;
   width: 40%;
@@ -52,6 +54,10 @@
 .form-wrap {
   display: flex;
   width: 100%;
+}
+
+.delete-palette {
+  width: 1em;
 }
 
 
