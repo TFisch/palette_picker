@@ -121,9 +121,28 @@ $('.lock-image').click(function (e) {
 })
 
 $('.generate-button').click(function () {
-
   $('.unlocked').each(function () { $(this).css('background-color', generateRandomColor()) });
 })
+
+$('#save-palette-button').click(async function () {
+  const colorOne = $('.color-one').css('background-color');
+  const colorTwo = $('.color-two').css('background-color');
+  const colorThree = $('.color-three').css('background-color');
+  const colorFour = $('.color-four').css('background-color');
+  const colorFive = $('.color-five').css('background-color');
+  const resolvedMatch = await findProjectMatch();
+  const projectId = resolvedMatch.id;
+  postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, projectId);
+})
+
+async function findProjectMatch() {
+  const selectedProject = $('.dropdown-top').text();
+  const url = "/api/v1/projects";
+  const response = await fetch(url);
+  const data = await response.json();
+  const match = data.find(project => selectedProject === project.name);
+  return match
+}
 
 $('.save-palette').click(function () {
   event.preventDefault();
