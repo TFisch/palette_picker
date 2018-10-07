@@ -9,12 +9,15 @@
 }
 
 .color {
+  align-items: center;
   background-color: white;
   border: solid 3px #CCCCCC;
-  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  display: flex;
+  justify-content: center;
   width: 8em;
+  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
 }
 
 .color-block {
@@ -93,7 +96,7 @@
 }
 
 .lock-image {
-  width: 1em;
+  width: 2em;
 }
 
 .locked {
