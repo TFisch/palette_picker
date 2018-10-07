@@ -12,7 +12,7 @@ async function retrieveSavedPalettes() {
   const response = await fetch(url);
   const data = await response.json();
   const match = data.map(palette => ($(`#proj${palette.project_id}`)).append(`
-  <li class="palette">
+  <li class="palette" id=${palette.id}>
     <h4 class="palette-name">${palette.name}</h4>
     <span class="block-wrap">
       <div class="color-block" style="background-color:${palette.color_1}"></div>
@@ -48,7 +48,6 @@ async function displayNewProject(id) {
   populateProjectMenu(data);
 }
 
-
 async function checkProjectName(entry) {
   const url = "/api/v1/projects";
   const response = await fetch(url);
@@ -72,6 +71,17 @@ async function addProject(entry) {
   await displayNewProject(data);
 }
 
+async function deletePalette(paletteId) {
+  const url = `/api/v1/palettes/${paletteId}`;
+  const response = await fetch(url, {
+    method: 'DELETE',
+  });
+  const data = await response.json();
+  await fetchProjects();
+  await retrieveSavedPalettes();
+}
+
+
 
 function generateRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
@@ -90,6 +100,16 @@ $(document).ready(function () {
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
 
+
+$(window).on('load', function () {
+  $('.delete-palette').click(function (event) {
+    const palette = ($(event.target).parent().parent());
+    const project = $(event.target).parent().parent().parent();
+    deletePalette(palette[0].id, project[0].id);
+  })
+});
+
+
 $('.color').click(function (event) {
   let imageState = ($(event.target).children('img').attr('src'));
   if (imageState === "./images/unlocked.svg") {
@@ -104,6 +124,8 @@ $('.color').click(function (event) {
     ($(event.target).toggleClass('locked-in'));
   }
 })
+
+
 
 $('.lock-image').click(function (e) {
   let imageState = $(event.target).attr('src');
@@ -156,11 +178,6 @@ async function findProjectMatch() {
   const match = data.find(project => selectedProject === project.name);
   return match
 }
-
-// $('.save-palette').click(function () {
-//   event.preventDefault();
-//   const entry = $('.palette-input').val();
-// })
 
 $('.project-menu').click(function (e) {
   event.preventDefault();

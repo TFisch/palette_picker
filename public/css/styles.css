@@ -4,7 +4,6 @@
 
 .block-wrap {
   align-items: center;
-  cursor: pointer;
   display: flex;
   justify-content: flex-end;
   width: 40%;
@@ -12,7 +11,6 @@
 
 .color {
   align-items: center;
-  background-color: white;
   border: solid 3px #CCCCCC;
   box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
   display: flex;
@@ -40,9 +38,10 @@
 }
 
 .create-head {
-  color: #CCCCCC;
+  color:  #0F292F;
   padding-bottom: .5em;
 }
+
 
 .dropdown-top {
   background: #0f292f;
@@ -57,6 +56,7 @@
 }
 
 .delete-palette {
+  cursor: pointer;
   width: 1em;
 }
 
@@ -274,7 +274,7 @@
 }
 
 .select-project {
-  color: #CCCCCC;
+  color:  #0F292F;
   position: absolute;
   left: 1em;
   top: 1em;
