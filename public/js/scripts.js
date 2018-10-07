@@ -13,7 +13,7 @@ async function retrieveSavedPalettes() {
   const data = await response.json();
   const match = data.map(palette => ($(`#proj${palette.project_id}`)).append(`
   <li class="palette">
-    <h4>${palette.name}</h4>
+    <h4 class="palette-name">${palette.name}</h4>
     <span class="block-wrap">
       <div class="color-block" style="background-color:${palette.color_1}"></div>
       <div class="color-block" style="background-color:${palette.color_2}"></div>
@@ -34,7 +34,7 @@ function populateProjectMenu(retreivedProjects) {
 
 function populateProjectList(retreivedProjects) {
   retreivedProjects.map(project => {
-    return $(".project-display").append(`<ul class="project-index" id=${"proj" + project.id}>${project.name}</ul>`);
+    return $(".project-display").append(`<ul class="project-index" id=${"proj" + project.id}><h4 class="project-name"><u>${project.name}</u></h4></ul>`);
   })
 }
 
