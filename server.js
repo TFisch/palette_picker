@@ -78,6 +78,22 @@ app.get('/api/v1/projects/:id', (request, response) => {
     });
 });
 
+app.get('/api/v1/projects/:name', (request, response) => {
+  database('projects').where('name', request.params.id).select()
+    .then(projects => {
+      if (projects.length) {
+        response.status(200).json(projects);
+      } else {
+        response.status(404).json({
+          error: `Could not find project with name ${request.params.name}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 app.get('/api/v1/projects/:id/palettes', (request, response) => {
   database('palettes').where('project_id', request.params.id).select()
     .then(palettes => {
@@ -133,6 +149,27 @@ app.post('/api/v1/palettes', (request, response) => {
       response.status(500).json({ error });
     });
 });
+
+app.delete('/api/v1/palettes', (request, response) => {
+  const palette = request.body;
+
+  for (let requiredParameter of ['color_1', 'color_2', 'color_3', 'color_4', 'color_5', 'name', 'project_id']) {
+    if (!palette[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `You're missing a "${requiredParameter}" property.` });
+    }
+  }
+
+  database('palettes').insert(palette, 'id')
+    .then(palette => {
+      response.status(201).json({ id: palette[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`);
