@@ -126,7 +126,6 @@ $('.generate-button').click(function () {
 
 
 async function postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, name, projectId) {
-  console.log(name);
   const url = "/api/v1/palettes";
   const response = await fetch(url, {
     method: 'POST',
@@ -134,7 +133,7 @@ async function postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive,
     headers: { 'Content-Type': 'application/json' }
   });
   const data = await response.json();
-  console.log(data);
+  fetchProjects();
 }
 $('#save-palette-button').click(async function () {
   const colorOne = $('.color-one').css('background-color');
@@ -157,10 +156,10 @@ async function findProjectMatch() {
   return match
 }
 
-$('.save-palette').click(function () {
-  event.preventDefault();
-  const entry = $('.palette-input').val();
-})
+// $('.save-palette').click(function () {
+//   event.preventDefault();
+//   const entry = $('.palette-input').val();
+// })
 
 $('.project-menu').click(function (e) {
   event.preventDefault();
