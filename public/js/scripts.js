@@ -124,13 +124,25 @@ $('.generate-button').click(function () {
   $('.unlocked').each(function () { $(this).css('background-color', generateRandomColor()) });
 })
 
+
+async function postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, name, projectId) {
+  console.log(name);
+  const url = "/api/v1/palettes";
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({ name: name, color_1: colorOne, color_2: colorTwo, color_3: colorThree, color_4: colorFour, color_5: colorFive, project_id: projectId }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  const data = await response.json();
+  console.log(data);
+}
 $('#save-palette-button').click(async function () {
   const colorOne = $('.color-one').css('background-color');
   const colorTwo = $('.color-two').css('background-color');
   const colorThree = $('.color-three').css('background-color');
   const colorFour = $('.color-four').css('background-color');
   const colorFive = $('.color-five').css('background-color');
-  const name = $('palette-input').value;
+  const name = $('.palette-input').val();
   const resolvedMatch = await findProjectMatch();
   const projectId = resolvedMatch.id;
   postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, name, projectId);
