@@ -106,6 +106,11 @@
   bottom: 1em; 
 }
 
+.list-wrapper {
+  padding-left: .3em;
+  padding-top: .3em;
+}
+
 .lock-image {
   width: 2em;
 }
@@ -140,12 +145,14 @@
 
 .palette {
   display: flex;
+  justify-content: space-between;
   margin-top: .35em;
   margin-bottom: .35em;
+  width: 90%;
 }
 
 .palette-name {
-  width: 50%;
+  color: #CCCCCC;
 }
 
 .palette-form {
@@ -212,7 +219,15 @@
   grid-row: 1/10;
   margin-top: 2em;
   height: 87.5%;
+  overflow: scroll;
   width: 95%;
+}
+
+.project-name {
+  color: #0F292F;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .project-selector {
