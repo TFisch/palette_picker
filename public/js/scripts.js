@@ -89,7 +89,7 @@ $(document).ready(function () {
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
 
-$('.color').click(function (e) {
+$('.color').click(function (event) {
   let imageState = ($(event.target).children('img').attr('src'));
   if (imageState === "./images/unlocked.svg") {
     ($(event.target).children('img').attr('src', './images/locked.svg'));
@@ -101,6 +101,21 @@ $('.color').click(function (e) {
     ($(event.target).children('img').attr('src', './images/unlocked.svg'));
     ($(event.target).toggleClass('unlocked'));
     ($(event.target).toggleClass('locked-in'));
+  }
+})
+
+$('.lock-image').click(function (e) {
+  let imageState = $(event.target).attr('src');
+  if (imageState === "./images/unlocked.svg") {
+    ($(event.target).attr('src', './images/locked.svg'));
+    ($(event.target).parent('div').toggleClass('unlocked'));
+    ($(event.target).parent('div').toggleClass('locked-in'));
+
+  }
+  if (imageState === "./images/locked.svg") {
+    ($(event.target).attr('src', './images/unlocked.svg'));
+    ($(event.target).parent('div').toggleClass('unlocked'));
+    ($(event.target).parent('div').toggleClass('locked-in'));
   }
 
 })
