@@ -145,18 +145,21 @@ app.post('/api/v1/palettes', (request, response) => {
     });
 });
 
-//send 
+//send delete request to palettes endpoint with specified if
 app.delete('/api/v1/palettes/:id', (request, response) => {
+  //find specified id in palettes database
   database('palettes').where({ id: request.params.id }).del()
     .then(response => {
+      //if sucessful respond with palette id
       response.status(201).json({ id })
     })
     .catch(error => {
+      //handle server side error
       response.status(500).json({ error });
     });
 });
 
-
+//list for app running and console.log specified port #
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`);
 });
