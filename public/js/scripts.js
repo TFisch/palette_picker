@@ -35,7 +35,7 @@ function populateProjectMenu(retreivedProjects) {
 
 function populateProjectList(retreivedProjects) {
   retreivedProjects.map(project => {
-    return $(".project-display").append(`<ul class="project-index" id=${"proj" + project.id}><h4 class="project-name"><u>${project.name}</u></h4></ul>`);
+    return $(".project-display").append(`<ul class="project-index" id=${"proj" + project.id}><h4 class="project-name"><ul>${project.name}</ul></h4>`);
   })
 }
 
@@ -156,7 +156,6 @@ async function postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive,
     headers: { 'Content-Type': 'application/json' }
   });
   const data = await response.json();
-  fetchProjects();
 }
 $('#save-palette-button').click(async function () {
   const colorOne = $('.color-one').css('background-color');
