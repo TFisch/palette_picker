@@ -12,7 +12,7 @@ fetchProjects = async () => {
 
 retrieveSavedPalettes = async () => {
   try {
-    const url = "http://localhost:3000/api/v1/palettes";
+    const url = "/api/v1/palettes";
     const response = await fetch(url);
     const data = await response.json();
     const match = data.map(palette => ($(`#proj${palette.project_id}`)).append(`
