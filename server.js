@@ -13,17 +13,6 @@ app.set('port', process.env.PORT || 3000);
 
 app.locals.title = 'Palette Picker';
 
-app.locals.projects = [
-  { id: 1, name: 'proj' },
-  { id: 2, name: 'projTwo' }
-]
-
-app.locals.palettes = [
-  { id: 1, color: 1, color: 2, color: 3, color: 4, color: 5 },
-  { id: 2, color: 1, color: 2, color: 3, color: 4, color: 5 },
-  { id: 3, color: 1, color: 2, color: 3, color: 4, color: 5 }
-]
-
 app.use(express.static('public'));
 
 app.get('/api/v1/palettes', (request, response) => {
