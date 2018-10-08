@@ -1,17 +1,21 @@
-
-async function fetchProjects() {
-  const url = "/api/v1/projects";
-  const response = await fetch(url);
-  const data = await response.json();
-  populateProjectMenu(data);
-  populateProjectList(data);
+fetchProjects = async () => {
+  try {
+    const url = "/api/v1/projects";
+    const response = await fetch(url);
+    const data = await response.json();
+    populateProjectMenu(data);
+    populateProjectList(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-async function retrieveSavedPalettes() {
-  const url = "http://localhost:3000/api/v1/palettes";
-  const response = await fetch(url);
-  const data = await response.json();
-  const match = data.map(palette => ($(`#proj${palette.project_id}`)).append(`
+retrieveSavedPalettes = async () => {
+  try {
+    const url = "http://localhost:3000/api/v1/palettes";
+    const response = await fetch(url);
+    const data = await response.json();
+    const match = data.map(palette => ($(`#proj${palette.project_id}`)).append(`
   <li class="palette" id=${palette.id}>
     <h4 class="palette-name">${palette.name}</h4>
     <span class="block-wrap">
@@ -24,67 +28,88 @@ async function retrieveSavedPalettes() {
     </span>
   </li>
   `));
-}
-
-
-function populateProjectMenu(retreivedProjects) {
-  retreivedProjects.map(project => {
-    return $(".project-menu").append(`<li class="stack project-item">${project.name}</li>`);
-  })
-}
-
-function populateProjectList(retreivedProjects) {
-  retreivedProjects.map(project => {
-    return $(".project-display").append(`<ul class="project-index" id=${"proj" + project.id}><h4 class="project-name"><ul>${project.name}</ul></h4>`);
-  })
-}
-
-async function displayNewProject(id) {
-  const idValue = Object.values(id);
-  const url = `/api/v1/projects/${idValue}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  populateProjectList(data);
-  populateProjectMenu(data);
-}
-
-async function checkProjectName(entry) {
-  const url = "/api/v1/projects";
-  const response = await fetch(url);
-  const data = await response.json();
-  const match = data.find(project => entry === project.name);
-  if (match) {
-    console.log("Sorry that project name is taken")
-  } else {
-    addProject(entry);
+  } catch (error) {
+    console.log(error);
   }
 }
 
-async function addProject(entry) {
-  const url = "/api/v1/projects";
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify({ name: entry }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-  const data = await response.json();
-  await displayNewProject(data);
+populateProjectMenu = (retreivedProjects) => {
+  retreivedProjects.map(project => {
+    return $(".project-menu").append(`
+      <li class="stack project-item">${project.name}</li>
+      `);
+  })
 }
 
-async function deletePalette(palette) {
-  paletteId = palette[0].id;
-  const url = `/api/v1/palettes/${paletteId}`;
-  const response = await fetch(url, {
-    method: 'DELETE',
-  });
-  const data = await response.json();
-  palette[0].remove();
-
+populateProjectList = (retreivedProjects) => {
+  retreivedProjects.map(project => {
+    return $(".project-display").append(`
+      <ul class="project-index" id=${"proj" + project.id}>
+        <h4 class="project-name">${project.name}</h4>
+      </ul>
+      `);
+  })
 }
 
+displayNewProject = async (id) => {
+  try {
+    const idValue = Object.values(id);
+    const url = `/api/v1/projects/${idValue}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    populateProjectList(data);
+    populateProjectMenu(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
+checkProjectName = async (entry) => {
+  try {
+    const url = "/api/v1/projects";
+    const response = await fetch(url);
+    const data = await response.json();
+    const match = data.find(project => entry === project.name);
+    if (match) {
+      console.log("Sorry that project name is taken")
+    } else {
+      addProject(entry);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-function generateRandomColor() {
+addProject = async (entry) => {
+  try {
+    const url = "/api/v1/projects";
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ name: entry }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await response.json();
+    await displayNewProject(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+deletePalette = async (palette) => {
+  try {
+    paletteId = palette[0].id;
+    const url = `/api/v1/palettes/${paletteId}`;
+    const response = await fetch(url, {
+      method: 'DELETE',
+    });
+    const data = await response.json();
+    palette[0].remove();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+generateRandomColor = () => {
   var letters = '0123456789ABCDEF'.split('');
   var hexId = '#';
 
@@ -94,13 +119,45 @@ function generateRandomColor() {
   return hexId
 }
 
+postPalette = async (
+  colorOne,
+  colorTwo,
+  colorThree,
+  colorFour,
+  colorFive,
+  name,
+  projectId) => {
+  try {
+    const url = "/api/v1/palettes";
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ name: name, color_1: colorOne, color_2: colorTwo, color_3: colorThree, color_4: colorFour, color_5: colorFive, project_id: projectId }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+findProjectMatch = async () => {
+  try {
+    const selectedProject = $('.dropdown-top').text();
+    const url = "/api/v1/projects";
+    const response = await fetch(url);
+    const data = await response.json();
+    const match = data.find(project => selectedProject === project.name);
+    return match
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 $(document).ready(function () {
   fetchProjects();
   retrieveSavedPalettes();
-
   $('.color').each(function () { $(this).css('background-color', generateRandomColor()) });
 });
-
 
 $(window).on('load', function () {
   $('.delete-palette').click(function (event) {
@@ -108,7 +165,6 @@ $(window).on('load', function () {
     deletePalette(palette);
   })
 });
-
 
 $('.color').click(function (event) {
   let imageState = ($(event.target).children('img').attr('src'));
@@ -125,38 +181,6 @@ $('.color').click(function (event) {
   }
 })
 
-
-
-$('.lock-image').click(function (e) {
-  let imageState = $(event.target).attr('src');
-  if (imageState === "./images/unlocked.svg") {
-    ($(event.target).attr('src', './images/locked.svg'));
-    ($(event.target).parent('div').toggleClass('unlocked'));
-    ($(event.target).parent('div').toggleClass('locked-in'));
-
-  }
-  if (imageState === "./images/locked.svg") {
-    ($(event.target).attr('src', './images/unlocked.svg'));
-    ($(event.target).parent('div').toggleClass('unlocked'));
-    ($(event.target).parent('div').toggleClass('locked-in'));
-  }
-
-})
-
-$('.generate-button').click(function () {
-  $('.unlocked').each(function () { $(this).css('background-color', generateRandomColor()) });
-})
-
-
-async function postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, name, projectId) {
-  const url = "/api/v1/palettes";
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify({ name: name, color_1: colorOne, color_2: colorTwo, color_3: colorThree, color_4: colorFour, color_5: colorFive, project_id: projectId }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-  const data = await response.json();
-}
 $('#save-palette-button').click(async function () {
   const colorOne = $('.color-one').css('background-color');
   const colorTwo = $('.color-two').css('background-color');
@@ -168,15 +192,6 @@ $('#save-palette-button').click(async function () {
   const projectId = resolvedMatch.id;
   postPalette(colorOne, colorTwo, colorThree, colorFour, colorFive, name, projectId);
 })
-
-async function findProjectMatch() {
-  const selectedProject = $('.dropdown-top').text();
-  const url = "/api/v1/projects";
-  const response = await fetch(url);
-  const data = await response.json();
-  const match = data.find(project => selectedProject === project.name);
-  return match
-}
 
 $('.project-menu').click(function (e) {
   event.preventDefault();
@@ -201,4 +216,24 @@ $(function () {
       $('.project-menu').hide();
     }
   });
+
+  $('.lock-image').click(function (e) {
+    let imageState = $(event.target).attr('src');
+    if (imageState === "./images/unlocked.svg") {
+      ($(event.target).attr('src', './images/locked.svg'));
+      ($(event.target).parent('div').toggleClass('unlocked'));
+      ($(event.target).parent('div').toggleClass('locked-in'));
+
+    }
+    if (imageState === "./images/locked.svg") {
+      ($(event.target).attr('src', './images/unlocked.svg'));
+      ($(event.target).parent('div').toggleClass('unlocked'));
+      ($(event.target).parent('div').toggleClass('locked-in'));
+    }
+
+  })
+
+  $('.generate-button').click(function () {
+    $('.unlocked').each(function () { $(this).css('background-color', generateRandomColor()) });
+  })
 });
