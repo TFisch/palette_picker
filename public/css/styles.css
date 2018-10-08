@@ -60,7 +60,6 @@
   width: 1em;
 }
 
-
 .generate-button {
   background-color: #14A098;
   border: solid 2px #CCCCCC;
@@ -75,6 +74,11 @@
   height: 60%;
   margin-left: 15%;
   width: 70%;
+}
+
+.generate-button:hover {
+  cursor: pointer;
+  color: #FEFFFF;
 }
 
 .headline {
