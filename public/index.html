@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Palette Picker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./css/styles.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Kaushan+Script|Open+Sans"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Palette Picker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="./css/styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Open+Sans" rel="stylesheet">
-</head>
-
-<body>
-  <header class="headline">
-    <h1 class="logo">Palette Picker</h1>
-  </header>
-  <div class="palettes-wrapper">
-    <section class="palettes-grid">
-      <article class="color-selection">
-        <div class="color-one color unlocked"><img class="lock-image" src="./images/unlocked.svg" alt="lock"></div>
-        <div class="color-two color unlocked"><img class="lock-image" src="./images/unlocked.svg" alt="lock"></div>
-        <div class="color-three color unlocked"><img class="lock-image" src="./images/unlocked.svg" alt="lock"></div>
-        <div class="color-four color unlocked"><img class="lock-image" src="./images/unlocked.svg" alt="lock"></div>
-        <div class="color-five color unlocked"><img class="lock-image" src="./images/unlocked.svg" alt="lock"></div>
-      </article>
-      <button class="generate-button">GENERATE NEW PALATE</button>
-      <form class="palette-form">
-
-
-        <span class="form-wrap">
-          <h4 class="select-project">SELECT EXISTING PROJECT:</h4>
-          <div class="project-selector">
-            <div class="dropdown-top stack" title="project-list">PROJECT LIST</div>
-            <section class="project-menu">
-            </section>
-          </div>
-          <div class="input-wrap palette-entry-wrap">
-            <span class="button-wrap">
-              <h4 class="create-head">SAVE PALETTE:</h4>
-              <input type="text" class="palette-input input" placeholder="Palette Name">
-              <button class="save-palette save-button" id="save-palette-button">SAVE</button>
+  <body>
+    <main class="content-wrapper">
+      <header class="headline">
+        <h1 class="logo">Palette Picker</h1>
+      </header>
+      <div class="palettes-wrapper">
+        <section class="palettes-grid">
+          <article class="color-selection">
+            <div class="color-one color unlocked">
+              <img class="lock-image" src="./images/unlocked.svg" alt="lock" />
+            </div>
+            <div class="color-two color unlocked">
+              <img class="lock-image" src="./images/unlocked.svg" alt="lock" />
+            </div>
+            <div class="color-three color unlocked">
+              <img class="lock-image" src="./images/unlocked.svg" alt="lock" />
+            </div>
+            <div class="color-four color unlocked">
+              <img class="lock-image" src="./images/unlocked.svg" alt="lock" />
+            </div>
+            <div class="color-five color unlocked">
+              <img class="lock-image" src="./images/unlocked.svg" alt="lock" />
+            </div>
+          </article>
+          <button class="generate-button">GENERATE NEW PALATE</button>
+          <form class="palette-form">
+            <span class="form-wrap">
+              <h4 class="select-project">SELECT EXISTING PROJECT:</h4>
+              <div class="project-selector">
+                <div class="dropdown-top stack" title="project-list">
+                  PROJECT LIST
+                </div>
+                <section class="project-menu"></section>
+              </div>
+              <div class="input-wrap palette-entry-wrap">
+                <span class="button-wrap">
+                  <h4 class="create-head">SAVE PALETTE:</h4>
+                  <input
+                    type="text"
+                    class="palette-input input"
+                    placeholder="Palette Name"
+                  />
+                  <button
+                    class="save-palette save-button"
+                    id="save-palette-button"
+                  >
+                    SAVE
+                  </button>
+                </span>
+              </div>
             </span>
-          </div>
-        </span>
-      </form>
-      <article class="project-list">
-        <div class="list-wrapper">
-          <span class="button-wrap">
-            <h4 class="create-head">CREATE A NEW PROJECT:</h4>
-            <input type="text" class="project-input input" placeholder="Project Name">
-            <button class="save-project save-button" id="save-project-button">SAVE</button>
-          </span>
-          <hr />
-          <div class="project-display"></div>
-        </div>
-      </article>
-    </section>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="./js/scripts.js"></script>
-</body>
-
+          </form>
+          <article class="project-list">
+            <div class="list-wrapper">
+              <span class="button-wrap">
+                <h4 class="create-head">CREATE A NEW PROJECT:</h4>
+                <input
+                  type="text"
+                  class="project-input input"
+                  placeholder="Project Name"
+                />
+                <button
+                  class="save-project save-button"
+                  id="save-project-button"
+                >
+                  SAVE
+                </button>
+              </span>
+              <hr />
+              <div class="project-display"></div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/scripts.js"></script>
+  </body>
 </html>
