@@ -11,20 +11,20 @@
 
 .color {
   align-items: center;
-  border: solid 3px #CCCCCC;
-  box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  border: solid 3px #cccccc;
+  box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
   cursor: pointer;
   display: flex;
   justify-content: center;
   width: 8em;
-  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  -moz-box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
 }
 
 .color-block {
   border: 2px solid black;
   height: 1em;
-  margin-right: .4em;
+  margin-right: 0.4em;
   width: 1em;
 }
 
@@ -38,15 +38,21 @@
   width: 100%;
 }
 
-.create-head {
-  color:  #0F292F;
-  padding-bottom: .5em;
+.content-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
 }
 
+.create-head {
+  color: #0f292f;
+  padding-bottom: 0.5em;
+}
 
 .dropdown-top {
   background: #0f292f;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   position: absolute;
   width: 10.2em;
 }
@@ -62,12 +68,12 @@
 }
 
 .generate-button {
-  background-color: #14A098;
-  border: solid 2px #CCCCCC;
-  -webkit-box-shadow: 13px 11px 25px 1px rgba(0,0,0,0.53);
-  -moz-box-shadow: 13px 11px 25px 1px rgba(0,0,0,0.53);
-  box-shadow: 13px 11px 25px 1px rgba(0,0,0,0.53);
-  color: #CCCCCC;
+  background-color: #14a098;
+  border: solid 2px #cccccc;
+  -webkit-box-shadow: 13px 11px 25px 1px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: 13px 11px 25px 1px rgba(0, 0, 0, 0.53);
+  box-shadow: 13px 11px 25px 1px rgba(0, 0, 0, 0.53);
+  color: #cccccc;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   grid-column: 3 / 6;
@@ -79,12 +85,12 @@
 
 .generate-button:hover {
   cursor: pointer;
-  color: #FEFFFF;
+  color: #feffff;
 }
 
 .headline {
   align-items: center;
-  background-color: #0F292F;
+  background-color: #0f292f;
   display: flex;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
@@ -93,18 +99,18 @@
 }
 
 .input {
-  background-color: #0F292F;
-  border: solid 2px #CCCCCC;
-  color: #FEFFFF;
+  background-color: #0f292f;
+  border: solid 2px #cccccc;
+  color: #feffff;
   font-size: 1em;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   position: relative;
   width: 10.2em;
   z-index: 1;
 }
 
 .input::placeholder {
-  color: #CCCCCC;
+  color: #cccccc;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -113,13 +119,13 @@
   justify-content: space-evenly;
   padding-top: 5em;
   position: absolute;
-  left: 1em; 
-  bottom: 1em; 
+  left: 1em;
+  bottom: 1em;
 }
 
 .list-wrapper {
-  padding-left: .3em;
-  padding-top: .3em;
+  padding-left: 0.3em;
+  padding-top: 0.3em;
 }
 
 .lock-image {
@@ -132,19 +138,19 @@
 }
 
 .logo {
-  background-color: #14A098;
+  background-color: #14a098;
   border-radius: 3em;
-  -webkit-box-shadow: 3px 6px 25px 11px rgba(0,0,0,0.53);
-  -moz-box-shadow: 3px 6px 25px 11px rgba(0,0,0,0.53);
-  box-shadow: 3px 6px 25px 11px rgba(0,0,0,0.53);
+  -webkit-box-shadow: 3px 6px 25px 11px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: 3px 6px 25px 11px rgba(0, 0, 0, 0.53);
+  box-shadow: 3px 6px 25px 11px rgba(0, 0, 0, 0.53);
   width: 6em;
-  color: #FEFFFF;
+  color: #feffff;
   display: flex;
   font-family: 'Kaushan Script', Cursive;
   font-size: 3em;
   justify-content: center;
-  padding: .35em;
-  text-shadow: 3px 2px #0F292F;
+  padding: 0.35em;
+  text-shadow: 3px 2px #0f292f;
 }
 
 .name-block-wrap {
@@ -157,22 +163,22 @@
 .palette {
   display: flex;
   justify-content: space-between;
-  margin-top: .35em;
-  margin-bottom: .35em;
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
   width: 90%;
 }
 
 .palette-name {
-  color: #CCCCCC;
+  color: #cccccc;
 }
 
 .palette-form {
   align-items: center;
-  background-color: #14A098;
-  border: solid 3px #CCCCCC;
-  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
+  background-color: #14a098;
+  border: solid 3px #cccccc;
+  -webkit-box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
+  box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
   display: flex;
   grid-column: 2 / 7;
   grid-row: 7 / 11;
@@ -184,7 +190,7 @@
 }
 
 .palettes-grid {
-  background-color: #0F292F;
+  background-color: #0f292f;
   display: grid;
   font-family: 'Open Sans', sans-serif;
   grid-template-columns: repeat(10, 1fr);
@@ -198,8 +204,8 @@
 }
 
 .project-menu {
-  background: #CCCCCC;
-  border: solid 2px #FEFFFF;
+  background: #cccccc;
+  border: solid 2px #feffff;
   display: none;
   max-height: 100px;
   padding: 0;
@@ -207,24 +213,24 @@
   overflow: scroll;
   top: 100%;
   width: 12.2em;
-  }
+}
 
 .palettes-wrapper {
-  background-color: #0F292F;
-  height: 43em;
+  background-color: #0f292f;
+  height: 45em;
 }
 
 .project-index {
-  color: #CCCCCC;
+  color: #cccccc;
 }
 
 .project-list {
-  background-color: #14A098;
-  border: solid 3px #CCCCCC;
-  -webkit-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  -moz-box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  box-shadow: 13px 21px 25px 1px rgba(0,0,0,0.53);
-  color: #CCCCCC;
+  background-color: #14a098;
+  border: solid 3px #cccccc;
+  -webkit-box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
+  box-shadow: 13px 21px 25px 1px rgba(0, 0, 0, 0.53);
+  color: #cccccc;
   font-family: 'Open Sans', sans-serif;
   grid-column: 8 / -1;
   grid-row: 1/10;
@@ -235,7 +241,7 @@
 }
 
 .project-name {
-  color: #0F292F;
+  color: #0f292f;
   font-size: 1.2em;
   font-weight: 700;
   text-decoration: underline;
@@ -243,7 +249,7 @@
 
 .project-selector {
   align-items: center;
-  border: solid 2px #CCCCCC;
+  border: solid 2px #cccccc;
   display: flex;
   justify-content: center;
   margin-top: 1em;
@@ -254,98 +260,91 @@
 }
 
 .save-button {
-  background-color: #0F292F;
+  background-color: #0f292f;
   border: none;
-  color: #CCCCCC;
+  color: #cccccc;
   font-family: 'Open Sans', sans-serif;
   outline: none;
-  position: absolute;
-  right: .2em;
-  bottom: .2em;
   z-index: 1;
 }
 
 .save-button:hover {
-  color: #FEFFFF;
+  color: #feffff;
   cursor: pointer;
 }
 
 #save-palette-button {
-  padding-bottom: .8em;
+  padding: 8px 8px;
 }
 
 #save-project-button {
-  top: .4em;
+  padding: 8px 8px;
 }
 
 .select-project {
-  color:  #0F292F;
+  color: #0f292f;
   position: absolute;
   left: 1em;
   top: 1em;
 }
 
 .stack {
-  background-color: #0F292F;
-  color: #CCCCCC;
+  background-color: #0f292f;
+  color: #cccccc;
   cursor: pointer;
   display: block;
   position: relative;
   z-index: 3;
 }
 
-
 .stack:hover {
-  color: #FEFFFF;
+  color: #feffff;
 }
 
 @media screen and (max-width: 1078px) {
- 
   .color {
     height: 6em;
     width: 6em;
   }
 
-.generate-button {
-  font-size: 1em;
-  grid-column: 1 / 3;
-  grid-row: 4;
-  margin-left: 3em;
-  width: 80%;
-}
+  .generate-button {
+    font-size: 1em;
+    grid-column: 1 / 3;
+    grid-row: 4;
+    margin-left: 3em;
+    width: 80%;
+  }
 
-.palette-form {
-  grid-column: 1 / 4;
-  grid-row: 5 / 9;
-  margin-left: 3em;
-}
+  .palette-form {
+    grid-column: 1 / 4;
+    grid-row: 5 / 9;
+    margin-left: 3em;
+  }
 
-.palettes-grid {
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  height: 98%;
-  width: 100%;
-}
+  .palettes-grid {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height: 98%;
+    width: 100%;
+  }
 
-.color-selection {
-  grid-column: 1/-1;
-  grid-row: 1/-1;
-  padding-bottom: 2em;
-  margin-top: 2em;
-  width: 100%;
-}
+  .color-selection {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    padding-bottom: 2em;
+    margin-top: 2em;
+    width: 100%;
+  }
 
-.project-list {
-  grid-column: 4 / -1;
-  grid-row: 3/10;
-  margin-top: 2em;
-  height: 87.5%;
-}
-
+  .project-list {
+    grid-column: 4 / -1;
+    grid-row: 3/10;
+    margin-top: 2em;
+    height: 87.5%;
+  }
 }
 
 @media screen and (max-width: 757px) {
-  
   .generate-button {
     grid-column: 1 / 5;
     margin-left: 1em;
@@ -356,7 +355,7 @@
     grid-row: 4 / 8;
     margin-left: 3em;
   }
-  
+
   .project-list {
     grid-column: 1 / -1;
     grid-row: 7 / -1;
@@ -366,7 +365,6 @@
 }
 
 @media screen and (max-width: 590px) {
-
   .generate-button {
     grid-column: 1 / -1;
     grid-row: 4/5;
@@ -378,6 +376,4 @@
     grid-row: 5 / 8;
     margin-left: 1em;
   }
-
-
 }
