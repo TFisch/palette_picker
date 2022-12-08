@@ -20,7 +20,7 @@
   "homepage": "https://github.com/TFisch/palette_picker#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "knex": "^0.19.5",
     "pg": "^7.5.0"
   }
